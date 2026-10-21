@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#8ed8f2">
+  <meta name="description" content="TDeportes: noticias, historias y análisis del deporte.">
+  <title>TDeportes.ar | Historias, noticias y análisis</title>
+  <style>
+    :root {
+      --celeste: #8ed8f2;
+      --celeste-oscuro: #087da7;
+      --azul: #102c49;
+      --amarillo: #ffd23f;
+      --blanco: #fff;
+      --fondo: #f4fbff;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--fondo);
+      color: var(--azul);
+      font-family: Arial, sans-serif;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .topline {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--celeste) 0 72px,
+        var(--blanco) 72px 144px,
+        var(--amarillo) 144px 152px
+      );
+    }
+
+    header {
+      background: var(--blanco);
+      border-bottom: 1px solid #dcecf5;
+    }
+
+    .wrap {
+      width: min(1160px, calc(100% - 36px));
+      margin: auto;
+    }
+
+    .head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-size: 1.5rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+    }
+
+    .brand span { color: var(--celeste-oscuro); }
+    .brand b { color: var(--amarillo); }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: .88rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    nav a:hover { color: var(--celeste-oscuro); }
+
+    .hero {
+      background: var(--azul);
+      color: var(--blanco);
+      padding: 48px 0;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--amarillo);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: .78rem;
+      font-weight: 900;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4.5rem);
+      line-height: .98;
+      margin: 14px 0;
+    }
+
+    h1 span { color: var(--amarillo); }
+
+    .hero p {
+      color: #d7eaf4;
+      line-height: 1.7;
+      max-width: 580px;
+    }
+
+    .hero-art {
+      min-height: 230px;
+      display: grid;
+      place-items: center;
+      border: 2px solid var(--celeste);
+      background: linear-gradient(135deg, #164769, #0b1e33);
+      border-radius: 18px;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .hero-art strong {
+      font-size: clamp(3rem, 8vw, 6rem);
+      color: var(--amarillo);
+      letter-spacing: -5px;
+    }
+
+    .hero-art small {
+      display: block;
+      color: var(--celeste);
+      letter-spacing: 4px;
+      font-weight: 800;
+    }
+
+    main { padding: 36px 0 54px; }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-transform: uppercase;
+      margin: 0 0 20px;
+      font-size: 1.25rem;
+    }
+
+    .section-title::before {
+      content: "";
+      width: 9px;
+      height: 28px;
+      background: var(--amarillo);
+    }
+
+    .lead {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 20px;
+      margin-bottom: 32px;
+    }
+
+    .feature {
+      background: var(--blanco);
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid #dcecf5;
+    }
+
+    .feature-art {
+      min-height: 210px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--celeste), var(--azul));
+      color: var(--blanco);
+      font-size: 3rem;
+      font-weight: 900;
+    }
+
+    .feature-art span { color: var(--amarillo); }
+    .feature-copy { padding: 20px; }
+
+    .tag {
+      color: var(--celeste-oscuro);
+      font-size: .75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .feature h3 {
+      margin: 9px 0;
+      font-size: 1.45rem;
+    }
+
+    .feature p,
+    .tile p {
+      line-height: 1.6;
+      color: #486175;
+    }
+
+    .tiles {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .tile {
+      padding: 22px;
+      background: var(--blanco);
+      border: 1px solid #dcecf5;
+      border-radius: 12px;
+    }
+
+    .tile h3 { margin-top: 0; }
+
+    .tile .number {
+      font-size: 1.8rem;
+      color: #b18a00;
+      font-weight: 900;
+    }
+
+    footer {
+      background: var(--azul);
+      color: var(--blanco);
+      padding: 24px 0;
+    }
+
+    footer .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    footer span { color: var(--celeste); }
+
+    @media (max-width: 720px) {
+      .hero-grid, .lead, .tiles { grid-template-columns: 1fr; }
+      nav { gap: 12px; }
+      .hero { padding: 34px 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+
+  <header>
+    <div class="wrap head">
+      <a class="brand" href="#">T<span>DEPORTES</span><b>.ar</b></a>
+      <nav>
+        <a href="#futbol">Fútbol</a>
+        <a href="#polideportivo">Polideportivo</a>
+        <a href="#motor">Motor</a>
+        <a href="#historias">Historias</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">La pasión, en todas sus formas</div>
+        <h1>El deporte<br>tiene <span>historia.</span></h1>
+        <p>
+          Noticias, análisis y relatos para descubrir lo que pasa dentro
+          y fuera de la cancha. Un espacio independiente para vivir
+          el deporte de otra manera.
+        </p>
+      </div>
+      <div class="hero-art">
+        <div>
+          <strong>TD</strong>
+          <small>TODO DEPORTES</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <h2 class="section-title">En el centro de la cancha</h2>
+
+    <div class="lead">
+      <article class="feature" id="futbol">
+        <div class="feature-art">FÚTBOL <span>.</span></div>
+        <div class="feature-copy">
+          <div class="tag">Análisis · Actualidad</div>
+          <h3>Mucho más que un resultado</h3>
+          <p>
+            El juego, las decisiones, las estadísticas y las historias
+            que explican lo que pasa dentro de la cancha.
+          </p>
+        </div>
+      </article>
+
+      <article class="feature" id="polideportivo">
+        <div class="feature-art">DEPORTE <span>+</span></div>
+        <div class="feature-copy">
+          <div class="tag">Polideportivo</div>
+          <h3>Todos los deportes tienen lugar</h3>
+          <p>
+            Del hockey al vóley, del rugby al básquet: competencias,
+            protagonistas y deporte amateur.
+          </p>
+        </div>
+      </article>
+    </div>
+
+    <h2 class="section-title">Otras formas de vivir el deporte</h2>
+
+    <div class="tiles">
+      <article class="tile" id="motor">
+        <div class="number">01</div>
+        <h3>Motor</h3>
+        <p>Fórmula 1, F2 y F3: pilotos, equipos, estrategia y rendimiento.</p>
+      </article>
+
+      <article class="tile" id="historias">
+        <div class="number">02</div>
+        <h3>Historias</h3>
+        <p>Crónicas y perfiles de las personas que hacen del deporte una pasión.</p>
+      </article>
+
+      <article class="tile" id="inclusion">
+        <div class="number">03</div>
+        <h3>Deporte e inclusión</h3>
+        <p>Iniciativas y proyectos que generan oportunidades dentro y fuera del juego.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <strong>TDEPORTES<span>.ar</span></strong>
+      <small>Noticias · Historias · Análisis | Proyecto en desarrollo</small>
+    </div>
+  </footer>
+</body>
+</html>
