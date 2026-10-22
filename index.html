@@ -3,337 +3,509 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#8ed8f2">
-  <meta name="description" content="TDeportes: noticias, historias y análisis del deporte.">
-  <title>TDeportes.ar | Historias, noticias y análisis</title>
+  <meta name="theme-color" content="#b8e8f7">
+  <meta name="description" content="TDeportes.ar: noticias, historias y análisis deportivos.">
+  <title>TDeportes.ar | Donde nace la pasión</title>
   <style>
     :root {
-      --celeste: #8ed8f2;
-      --celeste-oscuro: #087da7;
+      --celeste: #b8e8f7;
+      --celeste-fuerte: #79cde9;
       --azul: #102c49;
-      --amarillo: #ffd23f;
-      --blanco: #fff;
-      --fondo: #f4fbff;
+      --amarillo: #ffdf36;
+      --blanco: #ffffff;
+      --fondo: #f7fcff;
     }
 
     * { box-sizing: border-box; }
+
     html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      background: var(--fondo);
       color: var(--azul);
-      font-family: Arial, sans-serif;
+      background: var(--fondo);
+      font-family: Arial, Helvetica, sans-serif;
     }
 
     a { color: inherit; text-decoration: none; }
 
-    .topline {
-      height: 8px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--celeste) 0 72px,
-        var(--blanco) 72px 144px,
-        var(--amarillo) 144px 152px
-      );
+    .franja {
+      padding: 9px 16px;
+      background: var(--amarillo);
+      border-bottom: 3px solid var(--azul);
+      text-align: center;
+      font-size: .75rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
     }
 
     header {
       background: var(--blanco);
-      border-bottom: 1px solid #dcecf5;
+      border-bottom: 5px solid var(--azul);
     }
 
-    .wrap {
-      width: min(1160px, calc(100% - 36px));
+    .envoltura {
+      width: min(1120px, 92%);
       margin: auto;
     }
 
-    .head {
+    .cabecera {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 18px 0;
+      padding: 22px 0;
       flex-wrap: wrap;
     }
 
-    .brand {
-      font-size: 1.5rem;
-      font-weight: 900;
-      letter-spacing: -1px;
+    .marca {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 1000;
     }
 
-    .brand span { color: var(--celeste-oscuro); }
-    .brand b { color: var(--amarillo); }
+    .logo {
+      display: grid;
+      place-items: center;
+      width: 58px;
+      height: 58px;
+      background: var(--amarillo);
+      border: 3px solid var(--azul);
+      border-radius: 50%;
+      font-size: 1.45rem;
+      font-weight: 1000;
+      letter-spacing: -2px;
+      box-shadow: 4px 4px 0 var(--celeste-fuerte);
+    }
+
+    .marca-nombre {
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      font-weight: 1000;
+      letter-spacing: -1.5px;
+      text-transform: uppercase;
+    }
+
+    .marca-nombre span { color: #1687b4; }
+
+    .bajada {
+      margin-top: 3px;
+      font-size: .68rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
 
     nav {
       display: flex;
+      gap: 8px;
       flex-wrap: wrap;
-      gap: 18px;
-      font-size: .88rem;
-      font-weight: 800;
-      text-transform: uppercase;
+      padding-bottom: 14px;
     }
 
-    nav a:hover { color: var(--celeste-oscuro); }
-
-    .hero {
-      background: var(--azul);
-      color: var(--blanco);
-      padding: 48px 0;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 24px;
-      align-items: center;
-    }
-
-    .eyebrow {
-      color: var(--amarillo);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-size: .78rem;
+    nav a {
+      padding: 10px 14px;
+      background: var(--celeste);
+      border: 2px solid var(--azul);
+      font-size: .8rem;
       font-weight: 900;
+      text-transform: uppercase;
+      transition: .2s;
+    }
+
+    nav a:hover {
+      background: var(--amarillo);
+      transform: translateY(-2px);
+    }
+
+    main { padding: 28px 0 48px; }
+
+    .portada {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .principal {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(24px, 5vw, 56px);
+      background: var(--celeste);
+      border: 3px solid var(--azul);
+      box-shadow: 8px 8px 0 var(--amarillo);
+    }
+
+    .sello {
+      display: inline-block;
+      padding: 8px 12px;
+      background: var(--amarillo);
+      border: 2px solid var(--azul);
+      font-size: .75rem;
+      font-weight: 1000;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      line-height: .98;
-      margin: 14px 0;
-    }
-
-    h1 span { color: var(--amarillo); }
-
-    .hero p {
-      color: #d7eaf4;
-      line-height: 1.7;
-      max-width: 580px;
-    }
-
-    .hero-art {
-      min-height: 230px;
-      display: grid;
-      place-items: center;
-      border: 2px solid var(--celeste);
-      background: linear-gradient(135deg, #164769, #0b1e33);
-      border-radius: 18px;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .hero-art strong {
-      font-size: clamp(3rem, 8vw, 6rem);
-      color: var(--amarillo);
-      letter-spacing: -5px;
-    }
-
-    .hero-art small {
-      display: block;
-      color: var(--celeste);
-      letter-spacing: 4px;
-      font-weight: 800;
-    }
-
-    main { padding: 36px 0 54px; }
-
-    .section-title {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+      max-width: 650px;
+      margin: 22px 0 16px;
+      font-size: clamp(2.8rem, 7vw, 5.8rem);
+      font-weight: 1000;
+      letter-spacing: -4px;
+      line-height: .91;
       text-transform: uppercase;
-      margin: 0 0 20px;
-      font-size: 1.25rem;
     }
 
-    .section-title::before {
-      content: "";
-      width: 9px;
-      height: 28px;
-      background: var(--amarillo);
+    h1 span {
+      display: block;
+      color: #0879a4;
+      text-shadow: 3px 3px 0 var(--blanco);
     }
 
-    .lead {
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 20px;
-      margin-bottom: 32px;
+    .intro {
+      max-width: 490px;
+      font-size: 1.05rem;
+      line-height: 1.7;
     }
 
-    .feature {
-      background: var(--blanco);
-      border-radius: 14px;
-      overflow: hidden;
-      border: 1px solid #dcecf5;
-    }
-
-    .feature-art {
-      min-height: 210px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--celeste), var(--azul));
+    .boton {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 13px 18px;
+      background: var(--azul);
       color: var(--blanco);
-      font-size: 3rem;
+      border: 2px solid var(--azul);
+      font-size: .85rem;
       font-weight: 900;
+      text-transform: uppercase;
     }
 
-    .feature-art span { color: var(--amarillo); }
-    .feature-copy { padding: 20px; }
+    .boton:hover {
+      background: var(--amarillo);
+      color: var(--azul);
+    }
 
-    .tag {
-      color: var(--celeste-oscuro);
+    .grafica {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      padding: 24px;
+      background: var(--azul);
+      color: var(--blanco);
+      border: 3px solid var(--azul);
+    }
+
+    .grafica-arriba {
+      color: var(--amarillo);
       font-size: .75rem;
       font-weight: 900;
+      letter-spacing: 3px;
+    }
+
+    .td-gigante {
+      margin: 12px 0;
+      color: var(--amarillo);
+      font-size: clamp(6rem, 14vw, 10rem);
+      font-weight: 1000;
+      letter-spacing: -12px;
+      line-height: 1;
+      text-align: center;
+      text-shadow: 5px 5px 0 #287b9b;
+    }
+
+    .grafica-final {
+      padding-top: 14px;
+      border-top: 4px solid var(--celeste-fuerte);
+      font-size: .9rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
+    .seccion {
+      margin-top: 48px;
+    }
+
+    .titulo-seccion {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      padding-bottom: 12px;
+      border-bottom: 5px solid var(--azul);
+    }
+
+    .titulo-seccion h2 {
+      margin: 0;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 1000;
+      letter-spacing: -1px;
       text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
-    .feature h3 {
-      margin: 9px 0;
-      font-size: 1.45rem;
+    .numero {
+      padding: 7px 10px;
+      background: var(--amarillo);
+      border: 2px solid var(--azul);
+      font-weight: 1000;
     }
 
-    .feature p,
-    .tile p {
-      line-height: 1.6;
-      color: #486175;
-    }
-
-    .tiles {
+    .tarjetas {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 18px;
     }
 
-    .tile {
-      padding: 22px;
+    .tarjeta {
+      overflow: hidden;
       background: var(--blanco);
-      border: 1px solid #dcecf5;
-      border-radius: 12px;
+      border: 2px solid var(--azul);
+      box-shadow: 4px 4px 0 var(--celeste);
     }
 
-    .tile h3 { margin-top: 0; }
+    .tarjeta-cabecera {
+      display: grid;
+      place-items: center;
+      min-height: 150px;
+      padding: 20px;
+      background: var(--celeste);
+      border-bottom: 2px solid var(--azul);
+      text-align: center;
+    }
 
-    .tile .number {
-      font-size: 1.8rem;
-      color: #b18a00;
-      font-weight: 900;
+    .tarjeta:nth-child(2) .tarjeta-cabecera {
+      background: var(--amarillo);
+    }
+
+    .tarjeta:nth-child(3) .tarjeta-cabecera {
+      background: #d5f1fa;
+    }
+
+    .simbolo {
+      font-size: 3.2rem;
+      font-weight: 1000;
+      letter-spacing: -3px;
+    }
+
+    .tarjeta-cuerpo { padding: 20px; }
+
+    .etiqueta {
+      font-size: .7rem;
+      font-weight: 1000;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .tarjeta h3 {
+      margin: 10px 0;
+      font-size: 1.35rem;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    .tarjeta p {
+      margin-bottom: 0;
+      color: #36536b;
+      font-size: .94rem;
+      line-height: 1.65;
+    }
+
+    .destacada {
+      display: grid;
+      grid-template-columns: .35fr 1fr;
+      gap: 20px;
+      align-items: center;
+      margin-top: 38px;
+      padding: 25px;
+      background: var(--amarillo);
+      border: 3px solid var(--azul);
+    }
+
+    .destacada-numero {
+      font-size: clamp(3rem, 8vw, 5rem);
+      font-weight: 1000;
+      letter-spacing: -5px;
+      text-align: center;
+    }
+
+    .destacada h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      text-transform: uppercase;
+    }
+
+    .destacada p {
+      margin: 0;
+      line-height: 1.6;
     }
 
     footer {
+      padding: 28px 0;
       background: var(--azul);
       color: var(--blanco);
-      padding: 24px 0;
+      border-top: 7px solid var(--amarillo);
     }
 
-    footer .foot {
+    .pie {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 15px;
       flex-wrap: wrap;
     }
 
-    footer span { color: var(--celeste); }
+    .pie strong {
+      color: var(--amarillo);
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
 
-    @media (max-width: 720px) {
-      .hero-grid, .lead, .tiles { grid-template-columns: 1fr; }
-      nav { gap: 12px; }
-      .hero { padding: 34px 0; }
+    .pie small {
+      display: block;
+      margin-top: 6px;
+      color: var(--celeste);
+      line-height: 1.5;
+    }
+
+    @media (max-width: 760px) {
+      .portada { grid-template-columns: 1fr; }
+      .tarjetas { grid-template-columns: 1fr; }
+      .grafica { min-height: 250px; }
+      .destacada { grid-template-columns: 1fr; }
+      .destacada-numero { text-align: left; }
+      h1 { letter-spacing: -2px; }
+      nav a { padding: 9px 10px; }
     }
   </style>
 </head>
 <body>
-  <div class="topline"></div>
+  <div class="franja">Pasión · Historia · Deporte · Argentina</div>
 
   <header>
-    <div class="wrap head">
-      <a class="brand" href="#">T<span>DEPORTES</span><b>.ar</b></a>
-      <nav>
+    <div class="envoltura">
+      <div class="cabecera">
+        <a class="marca" href="#">
+          <div class="logo">TD</div>
+          <div>
+            <div class="marca-nombre">T<span>Deportes</span>.ar</div>
+            <div class="bajada">Donde nace la pasión</div>
+          </div>
+        </a>
+      </div>
+      <nav aria-label="Secciones deportivas">
         <a href="#futbol">Fútbol</a>
         <a href="#polideportivo">Polideportivo</a>
         <a href="#motor">Motor</a>
         <a href="#historias">Historias</a>
+        <a href="#inclusion">Deporte e inclusión</a>
       </nav>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">La pasión, en todas sus formas</div>
-        <h1>El deporte<br>tiene <span>historia.</span></h1>
-        <p>
+  <main class="envoltura">
+    <section class="portada">
+      <div class="principal">
+        <span class="sello">Una pasión que nos une</span>
+        <h1>El deporte <span>tiene historia.</span></h1>
+        <p class="intro">
           Noticias, análisis y relatos para descubrir lo que pasa dentro
-          y fuera de la cancha. Un espacio independiente para vivir
-          el deporte de otra manera.
+          y fuera de la cancha. Un espacio independiente para vivir el
+          deporte de otra manera.
+        </p>
+        <a class="boton" href="#secciones">Explorá TDeportes ↘</a>
+      </div>
+
+      <aside class="grafica" aria-label="Identidad de TDeportes">
+        <div class="grafica-arriba">EDICIÓN DEPORTIVA · ARGENTINA</div>
+        <div class="td-gigante">TD</div>
+        <div class="grafica-final">TODO DEPORTES</div>
+      </aside>
+    </section>
+
+    <section class="seccion" id="secciones">
+      <div class="titulo-seccion">
+        <span class="numero">01</span>
+        <h2>El deporte, en todas sus formas</h2>
+      </div>
+
+      <div class="tarjetas">
+        <article class="tarjeta" id="futbol">
+          <div class="tarjeta-cabecera">
+            <div class="simbolo">FÚTBOL</div>
+          </div>
+          <div class="tarjeta-cuerpo">
+            <div class="etiqueta">Análisis · Actualidad</div>
+            <h3>Mucho más que un resultado</h3>
+            <p>
+              El juego, las decisiones, las estadísticas y las historias
+              que explican lo que pasa dentro de la cancha.
+            </p>
+          </div>
+        </article>
+
+        <article class="tarjeta" id="polideportivo">
+          <div class="tarjeta-cabecera">
+            <div class="simbolo">DEPORTE</div>
+          </div>
+          <div class="tarjeta-cuerpo">
+            <div class="etiqueta">Polideportivo</div>
+            <h3>Todos tienen lugar</h3>
+            <p>
+              Del hockey al vóley, del rugby al básquet: competencias,
+              protagonistas y deporte amateur.
+            </p>
+          </div>
+        </article>
+
+        <article class="tarjeta" id="motor">
+          <div class="tarjeta-cabecera">
+            <div class="simbolo">MOTOR</div>
+          </div>
+          <div class="tarjeta-cuerpo">
+            <div class="etiqueta">F1 · F2 · F3</div>
+            <h3>La carrera detrás de la carrera</h3>
+            <p>
+              Pilotos, equipos, estrategia, neumáticos y rendimiento
+              para entender cada fin de semana.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="destacada" id="historias">
+      <div class="destacada-numero">02</div>
+      <div>
+        <h2>Historias que merecen ser contadas</h2>
+        <p>
+          Crónicas, entrevistas y perfiles de las personas que hacen
+          del deporte una pasión: protagonistas, esfuerzo y sueños.
         </p>
       </div>
-      <div class="hero-art">
-        <div>
-          <strong>TD</strong>
-          <small>TODO DEPORTES</small>
-        </div>
+    </section>
+
+    <section class="seccion" id="inclusion">
+      <div class="titulo-seccion">
+        <span class="numero">03</span>
+        <h2>El deporte es de todos</h2>
       </div>
-    </div>
-  </section>
-
-  <main class="wrap">
-    <h2 class="section-title">En el centro de la cancha</h2>
-
-    <div class="lead">
-      <article class="feature" id="futbol">
-        <div class="feature-art">FÚTBOL <span>.</span></div>
-        <div class="feature-copy">
-          <div class="tag">Análisis · Actualidad</div>
-          <h3>Mucho más que un resultado</h3>
-          <p>
-            El juego, las decisiones, las estadísticas y las historias
-            que explican lo que pasa dentro de la cancha.
-          </p>
-        </div>
-      </article>
-
-      <article class="feature" id="polideportivo">
-        <div class="feature-art">DEPORTE <span>+</span></div>
-        <div class="feature-copy">
-          <div class="tag">Polideportivo</div>
-          <h3>Todos los deportes tienen lugar</h3>
-          <p>
-            Del hockey al vóley, del rugby al básquet: competencias,
-            protagonistas y deporte amateur.
-          </p>
-        </div>
-      </article>
-    </div>
-
-    <h2 class="section-title">Otras formas de vivir el deporte</h2>
-
-    <div class="tiles">
-      <article class="tile" id="motor">
-        <div class="number">01</div>
-        <h3>Motor</h3>
-        <p>Fórmula 1, F2 y F3: pilotos, equipos, estrategia y rendimiento.</p>
-      </article>
-
-      <article class="tile" id="historias">
-        <div class="number">02</div>
-        <h3>Historias</h3>
-        <p>Crónicas y perfiles de las personas que hacen del deporte una pasión.</p>
-      </article>
-
-      <article class="tile" id="inclusion">
-        <div class="number">03</div>
-        <h3>Deporte e inclusión</h3>
-        <p>Iniciativas y proyectos que generan oportunidades dentro y fuera del juego.</p>
-      </article>
-    </div>
+      <p class="intro">
+        Iniciativas, inclusión y oportunidades dentro y fuera del juego.
+        Porque el deporte también puede abrir caminos y transformar vidas.
+      </p>
+    </section>
   </main>
 
   <footer>
-    <div class="wrap foot">
-      <strong>TDEPORTES<span>.ar</span></strong>
-      <small>Noticias · Historias · Análisis | Proyecto en desarrollo</small>
+    <div class="envoltura pie">
+      <div>
+        <strong>TDEPORTES.ar</strong>
+        <small>Noticias · Historias · Análisis</small>
+      </div>
+      <small>Un proyecto independiente de periodismo deportivo.</small>
     </div>
   </footer>
 </body>
