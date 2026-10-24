@@ -253,18 +253,16 @@
       font-weight: 1000;
     }
 
-    .tarjetas {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .tarjeta {
-      overflow: hidden;
-      background: var(--blanco);
-      border: 2px solid var(--azul);
-      box-shadow: 4px 4px 0 var(--celeste);
-    }
+  .foto-tarjeta {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 150px;
+  object-fit: contain;
+  object-position: center;
+  background: #ffffff;
+  filter: none;
+}
 
     .tarjeta-cabecera {
       display: grid;
