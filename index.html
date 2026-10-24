@@ -265,15 +265,17 @@
 }
 
     .tarjeta-cabecera {
-      display: grid;
-      place-items: center;
-      min-height: 150px;
-      padding: 20px;
-      background: var(--celeste);
-      border-bottom: 2px solid var(--azul);
-      text-align: center;
-    }
-
+     display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 150px;
+  padding: 12px;
+  background: var(--celeste);
+  border-bottom: 2px solid var(--azul);
+  text-align: center;
+}
     .tarjeta:nth-child(2) .tarjeta-cabecera {
       background: var(--amarillo);
     }
